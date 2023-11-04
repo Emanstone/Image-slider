@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="slider-container">
+        <img class="mover" name="slide" width="500" height="400" />
+    </div>
+    
+    <script>
+        var i = 0; 			// Starting Point
+        var images = [];	// Images Array,
+        var time = 3000;	// Time interval b4 Switch
+
+        // Image List
+        images[0] = "./Simages/img1.jpg";
+        images[1] = "./Simages/img2.jpg";
+        images[2] = "https://picsum.photos/id/11/367/267";
+        images[3] = "https://picsum.photos/id/12/367/267";
+        images[4] = "https://picsum.photos/id/19/367/267";
+        images[5] = "https://picsum.photos/id/20/367/267";
+        images[6] = "https://picsum.photos/id/26/367/267";
+        images[7] = "https://picsum.photos/id/22/367/267";
+        images[8] = "https://picsum.photos/id/7/367/267";
+        images[9] = "https://picsum.photos/id/25/367/267";
+
+        // Change Image
+        function changeImg() {
+            // document.getElementById("slide").style.transform = "translateX(-100%)"; // Slide to the left
+            document.slide.src = images[i];
+
+            // Check If Index Is Under Max
+            if (i < images.length - 1) {
+                // Add 1 to Index
+                i++;
+            } else {
+                // Reset Back To O
+                i = 0;
+            }
+
+            // Run function every x seconds
+            setTimeout("changeImg()", time);
+        }
+
+        // Run function when page loads
+        window.onload = changeImg;
+    </script>
+
+</body>
+
+</html>

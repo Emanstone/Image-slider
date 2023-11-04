@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo slider</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Image Slider</h1>
+    <div class="slider-container">
+        <img id="slide" width="500" height="400" />
+    </div>
+
+    <script>
+        var i = 0;
+        var images = [
+            "./Simages/img1.jpg",
+            "./Simages/img2.jpg",
+            "./Simages/img3.jpg",
+            "./Simages/img4.jpg",
+            "./Simages/img5.jpg",
+            "./Simages/img6.jpg",
+            "./Simages/img7.jpg",
+            "./Simages/img8.jpg",
+            "./Simages/img9.jpg",
+            "./Simages/img10.jpg",
+        ];
+
+        var time = 3000;
+
+        function changeImg() {
+            document.getElementById("slide").style.transform = "translateX(-100%)"; // Slide to the left
+            setTimeout(() => {
+                document.getElementById("slide").src = images[i];
+                document.getElementById("slide").style.transform = "translateX(0%)"; // Reset position to show the new image
+                if (i < images.length - 1) {
+                    i++;
+                } else {
+                    i = 0;
+                }
+                setTimeout(changeImg, time);
+            }, 3000); // Wait for the transition duration before changing the image
+        }
+
+        window.onload = changeImg;
+
+    </script>
+
+</body>
+
+</html>
